@@ -72,6 +72,7 @@ function removeAdd(element) {
 }
 function removeGroup(element) {
   $(`#${element.id}`).remove();
+  QueryFormatter();
 }
 
 function onChangeAddSection() {
@@ -165,6 +166,9 @@ function onChangesValues() {
     QueryFormatter();
   });
   $(".sub-dropdown-class").on("change", function () {
+    QueryFormatter();
+  });
+  $(".removeGroup").on("click", function () {
     QueryFormatter();
   });
 }
