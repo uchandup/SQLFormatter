@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta title="formatter" description="Json And SQL Formatter" />
+    <meta name="description" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./formatter.js"></script>
+    <title>Formatter</title>
+    <style>
+      body {
+        height: 100vh;
+        background-color: rgb(57, 58, 51);
+      }
+      .main-formatter {
+        width: calc(100% - 600px);
+        border: 2px solid rgb(253, 253, 15);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: rgb(216, 237, 175);
+      }
+      button {
+        cursor: pointer;
+        padding: 6px;
+        border: 2px soild black;
+      }
+      select {
+        width: 105px;
+        height: 30px;
+      }
+      .formatter {
+        display: flex;
+        gap: 20px;
+      }
+      .dy-form {
+        padding: 0.5rem;
+      }
+      .sub-add {
+        margin: 10px;
+        display: flex;
+        gap: 20px;
+      }
+      .sub-group {
+        margin: 20px;
+        background-color: rgb(113 169 0);
+        border: 2px solid rgb(253, 253, 15);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        margin-left: 10px;
+      }
+      .sub-group-form {
+        margin: 10px;
+        display: flex;
+        gap: 20px;
+      }
+      h1 {
+        color: rgb(236, 221, 242);
+      }
+    </style>
+  </head>
+  <body>
+    <div><h1>Formatter</h1></div>
+    <div class="main-formatter">
+      <div class="formatter">
+        <select id="main-dropdown" onchange="onCondition(this.value)">
+          <option value="and">And</option>
+          <option value="or">Or</option>
+        </select>
+        <button id="main-add" onclick="onAdd(this.id)">+ Add</button>
+        <button id="main-Group" onclick="onGroup(this.id)">+ Group</button>
+      </div>
+      <div id="dy-form" class="d-formatter"></div>
+      <p style="width: 100%; font-weight: bolder" id="sql-formatted"></p>
+      <pre id="json-formatted"></pre>
+    </div>
+  </body>
+</html>
