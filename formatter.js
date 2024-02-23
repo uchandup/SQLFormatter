@@ -1,8 +1,16 @@
 var subgroup = 0;
 var subAdd = 0;
+var numberPattern = /\d+/g;
 
 $(document).ready(function () {
   onChangedMain();
+
+  var inputString = "subAdddiv26"; // Your input string
+
+  // Regular expression to match numbers
+
+  var numbers = inputString.match(numberPattern);
+  console.log(numbers[0]);
 });
 
 function onAdd(value, subA) {
@@ -117,7 +125,8 @@ function QueryFormatter() {
         if (index >= 1) {
           realQuery += `${$("#main-dropdown").val()}`;
         }
-        let query_value = $(element).attr("id").split("").pop();
+        let numbers = $(element).attr("id").match(numberPattern);
+        let query_value = numbers[0];
         var value_query = $(`#colvalue${query_value}`).val();
         var opertor_query = $(`#operatores${query_value}`).val();
         var valCond_query = $(`#value-editor${query_value}`).val();
@@ -139,7 +148,8 @@ function QueryFormatter() {
               if (index >= 1) {
                 realQuery += `${$("#sub-dropdown" + subGroup_query).val()}`;
               }
-              let query_value = $(element).attr("id").split("").pop();
+              let numbers = $(element).attr("id").match(numberPattern);
+              let query_value = numbers[0];
               var value_query = $(`#colvalue${query_value}`).val();
               var opertor_query = $(`#operatores${query_value}`).val();
               var valCond_query = $(`#value-editor${query_value}`).val();
